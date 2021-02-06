@@ -33,9 +33,7 @@ export class RiotApi {
     return summoner.id
   }
 
-  public async getActiveGame(summonerName: string): Promise<any> {
-    const summonerId = await this.getSummonerId(summonerName)
-
+  public async getActiveGame(summonerId: string): Promise<any> {
     const game = await this._callApi('lol/spectator/v4/active-games/by-summoner', [summonerId])
 
     return game
