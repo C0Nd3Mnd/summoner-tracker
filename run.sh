@@ -12,6 +12,7 @@ done
 if [ "$reload" -eq "1" ]; then
   deno run \
     --allow-net \
+    --allow-read \
     --unstable \
     --importmap=import_map.json \
     --reload \
@@ -19,6 +20,7 @@ if [ "$reload" -eq "1" ]; then
 else
   deno run \
     --allow-net \
+    --allow-read \
     --unstable \
     --importmap=import_map.json \
     src/mod.ts
