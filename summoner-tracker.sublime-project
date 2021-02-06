@@ -1,0 +1,22 @@
+{
+  "folders":
+  [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "LSP": {
+      "lsp-typescript": {
+        "enabled": false
+      },
+      "deno": {
+        "enabled": true,
+        "initializationOptions": {
+          // "config": "",
+          "importMap": "./import_map.json"
+        }
+      }
+    }
+  }
+}
