@@ -1,3 +1,5 @@
+import { Game } from './game.interface.ts'
+
 export class RiotApi {
   private _apiKey: string
 
@@ -19,6 +21,8 @@ export class RiotApi {
       }
     )
 
+    console.log(result)
+
     // @todo Error handling...
 
     return result.json()
@@ -33,9 +37,17 @@ export class RiotApi {
     return summoner.id
   }
 
-  public async getActiveGame(summonerId: string): Promise<any> {
-    const game = await this._callApi('lol/spectator/v4/active-games/by-summoner', [summonerId])
+  public async getActiveGame(summonerId: string): Promise<Game> {
+    const game = await this._callApi(
+      'lol/spectator/v4/active-games/by-summoner',
+      [summonerId]
+    )
 
-    return game
+    if (!game) {
+      // @todo Error handling.
+      throw new Error('temp')
+    }
+
+    return game as Game
   }
 }
