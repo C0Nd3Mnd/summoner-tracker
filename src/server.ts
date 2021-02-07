@@ -28,7 +28,6 @@ server.get('/live/:summonerName', async (req, res) => {
     return {
       summonerSpellIds: [x.spell1Id, x.spell2Id],
       championId: x.championId,
-      unsealedSpellbook: x.perks.perkIds.indexOf(Rune.UnsealedSpellbook) > -1,
       cosmicInsight: x.perks.perkIds.indexOf(Rune.CosmicInsight) > -1
     }
   })
