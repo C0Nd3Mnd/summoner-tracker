@@ -4,4 +4,5 @@
 node_modules
 .cache
 /client-web/dist
+/client-web/src/_dragon-cache
 package-lock.json
