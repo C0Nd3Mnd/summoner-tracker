@@ -1,17 +1,22 @@
 <template>
   <div class="champion-bracket__wrapper">
-    <div class="champion-bracket__portrait" :style="backgroundImage(`champion/${champion}`)"></div>
+    <div class="champion-bracket__portrait" :style="backgroundImage(champion)"></div>
     <div class="champion-bracket__summoners">
-      <div class="champion-bracket__icon" :style="backgroundImage(`spell/${spellD}`)"></div>
-      <div class="champion-bracket__icon" :style="backgroundImage(`spell/${spellF}`)"></div>
-      <div class="champion-bracket__icon" :style="backgroundImage('item/3158.png')"></div>
+      <div class="champion-bracket__icon" :style="backgroundImage(spellD)"></div>
+      <div class="champion-bracket__icon" :style="backgroundImage(spellF)"></div>
+      <div class="champion-bracket__icon" :style="backgroundImage(lucidityBootsImage)"></div>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
+import lucidityBootsImage from '/_dragon-cache/LucidityBoots.png'
+
 export default {
   name: 'ChampionBracket',
+  data: () => ({
+    lucidityBootsImage
+  }),
   props: {
     champion: {
       type: String,
@@ -33,8 +38,7 @@ export default {
   methods: {
     backgroundImage(path) {
       return {
-        backgroundImage:
-          `url(https://ddragon.leagueoflegends.com/cdn/11.4.1/img/${path})`
+        backgroundImage: `url(${path})`
       }
     }
   }

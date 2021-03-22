@@ -12,9 +12,9 @@
 </template>
 
 <script type="text/javascript">
-import ChampionBracket from './components/ChampionBracket.vue'
-import summoner from './data/summoner.js'
-import champion from './data/champion.js'
+import ChampionBracket from '/components/ChampionBracket.vue'
+import { summoners } from '/_dragon-cache/summoners.js'
+import { champions } from '/_dragon-cache/champions.js'
 
 export default {
   name: 'App',
@@ -34,13 +34,13 @@ export default {
   computed: {
     brackets() {
       return this.players.map(player => ({
-        champion: champion
+        champion: champions
           .find(champion => champion.key === player.championId)
           .image,
-        spellD: summoner
+        spellD: summoners
           .find(spell => spell.key === player.summonerSpellIds[0])
           .image,
-        spellF: summoner
+        spellF: summoners
           .find(spell => spell.key === player.summonerSpellIds[1])
           .image
       }))

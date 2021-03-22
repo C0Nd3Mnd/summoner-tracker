@@ -183,7 +183,8 @@ async function execute() {
 
   await downloadLucidityBoots()
 
-  console.log('\n', 'All done!')
+  console.log('\n')
+  console.log('All done!')
 }
 
 execute()
